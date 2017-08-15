@@ -15,7 +15,7 @@ public class ParField {
 
     private String type;
 
-    private boolean nessesary;
+    private boolean nullable;
 
     private int length;
 
@@ -35,12 +35,12 @@ public class ParField {
         this.type = type;
     }
 
-    public boolean isNessesary() {
-        return nessesary;
+    public boolean isNullable() {
+        return nullable;
     }
 
-    public void setNessesary(boolean nessesary) {
-        this.nessesary = nessesary;
+    public void setNullable(boolean nullable) {
+        this.nullable = nullable;
     }
 
     public int getLength() {

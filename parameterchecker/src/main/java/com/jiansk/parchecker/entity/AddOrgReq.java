@@ -1,5 +1,7 @@
 package com.jiansk.parchecker.entity;
 
+import com.hundsun.tbsp.common.common.base.TbspRequest;
+import com.hundsun.tbsp.common.common.dict.G00024;
 import net.sf.oval.constraint.Length;
 import net.sf.oval.constraint.MatchPattern;
 import net.sf.oval.constraint.NotNull;
@@ -15,7 +17,7 @@ import java.util.List;
  * 开发时间：2017-04-26 16:26
  * 修改记录：程序版本    修改日期    修改人员    修改单号    修改说明
  *********************************************************/
-public class AddOrgReq{
+public class AddOrgReq extends TbspRequest{
 
     /**
      * 机构号
@@ -37,8 +39,13 @@ public class AddOrgReq{
      * 联行行号
      */
     @MatchPattern(errorCode = "0TB320000003", message = "联行行号应为12位数字", pattern = "^\\d{12}$")
-    @Length(max = 12 ,message = "联行行号超长")
     private String bankNo;
+
+    /**
+     * 机构级别
+     */
+    @NotNull(errorCode = "0TB320000001", message = "机构级别为空")
+    private G00024 orgGrade;
 
     /**
      * 上级机构号
@@ -82,6 +89,14 @@ public class AddOrgReq{
 
     public void setBankNo(String bankNo) {
         this.bankNo = bankNo;
+    }
+
+    public G00024 getOrgGrade() {
+        return orgGrade;
+    }
+
+    public void setOrgGrade(G00024 orgGrade) {
+        this.orgGrade = orgGrade;
     }
 
     public String getUppOrgNo() {
